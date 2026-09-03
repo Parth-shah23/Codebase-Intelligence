@@ -10,8 +10,9 @@ def clone_repo():
     local_path = Path("repos") / repo_name
     # Create repos folder if it doesn't exist
     local_path.parent.mkdir(parents=True, exist_ok=True)
-    # Clone repository
-    repo = Repo.clone_from(github_url, local_path)
+    # Clone repository (added depth=1 for faster shallow cloning)
+    Repo.clone_from(github_url, local_path, depth=1)
     print("Repository cloned successfully!")
     print("Location:", local_path)
-    return repo
+    
+    return str(local_path)
