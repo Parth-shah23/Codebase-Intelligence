@@ -14,5 +14,4 @@ def clone_repo():
     Repo.clone_from(github_url, local_path, depth=1)
     print("Repository cloned successfully!")
     print("Location:", local_path)
-    
     return str(local_path)
