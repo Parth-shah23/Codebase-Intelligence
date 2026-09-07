@@ -15,7 +15,7 @@ list = [e.value for e in Language] #List of lang supported by langchain for code
 from pathlib import Path
 from langchain_text_splitters import RecursiveCharacterTextSplitter, Language
 
-def split_into_chunks(clean_files):
+def split_into_chunks(clean_files,username,repo_name):
     # 1. Pre-instantiate language splitters outside the loop for maximum speed
     language_splitters = {
         ".js": RecursiveCharacterTextSplitter.from_language(
@@ -67,6 +67,8 @@ def split_into_chunks(clean_files):
             "source": str(path_obj),
             "file_name": path_obj.name,
             "extension": suffix,
+            "username": username,
+            "repo_name": repo_name
         }
 
         # 2. Select pre-built splitter instance
