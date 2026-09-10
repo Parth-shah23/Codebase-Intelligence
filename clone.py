@@ -1,3 +1,4 @@
+# pyrefly: ignore [missing-import]
 from git import Repo
 from pathlib import Path
 from urllib.parse import urlparse
@@ -26,4 +27,5 @@ def clone_repo():
     Repo.clone_from(github_url, local_path, depth=1)
     print("Repository cloned successfully!")
     print("Location:", local_path)
-    return (str(local_path),parse_github_url(github_url))
+    username, repo_name = parse_github_url(github_url)
+    return str(local_path), username, repo_name

@@ -1,3 +1,4 @@
+# pyrefly: ignore [missing-import]
 from langchain_text_splitters import (
     Language,
     RecursiveCharacterTextSplitter,
@@ -9,11 +10,10 @@ from pathlib import Path
 # This process continues down to the word level if necessary.
 
 
-list = [e.value for e in Language] #List of lang supported by langchain for codes
+supported_languages = [e.value for e in Language]  # List of lang supported by langchain for codes
 
 
-from pathlib import Path
-from langchain_text_splitters import RecursiveCharacterTextSplitter, Language
+
 
 def split_into_chunks(clean_files,username,repo_name):
     # 1. Pre-instantiate language splitters outside the loop for maximum speed
